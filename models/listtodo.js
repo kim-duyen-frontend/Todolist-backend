@@ -9,8 +9,7 @@ const cardSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now }
 })
 let Card = mongoose.model("Card", cardSchema);
 module.exports = { Card };
