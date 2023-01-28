@@ -23,11 +23,9 @@ const cardController = {
     },
     updateCard: async (req, res) => {
         try {
-            //tìm card
-            const card = await Card.findById(req.params.id);
-            //cập nhật
-            await card.updateOne({ $set: req.body })
-            res.status(200).json("Updated successfully");
+            await Card.findByIdAndUpdate({ _id: req.params.id }, req.body);
+            const allCard = await Card.find();
+            res.status(200).json(allCard);
         } catch (error) {
             res.status(500).json(error);
         }
